@@ -1,8 +1,20 @@
 <h2>{{ title }}</h2>
-<img [src]="imageUrl" />
-<ul>
-  <li *ngFor="let course of courses">{{ course }}</li>
-</ul>
+
+{{ course.title | uppercase }} <br />
+{{ course.students | number }} <br />
+{{ course.rating | number: '.3-3' }} <br />
+{{ course.price | currency: 'USD':true:'3.2-2' }} <br />
+{{ course.releaseDate | date: 'shortDate' }} <br />
+<!-- {{ text | summary: 100 }} -->
+<!-- <img [src]="imageUrl" /> -->
+
+<div *ngIf="courses.length > 0; else: noCourses">
+  <ul>
+    <li *ngFor="let course of courses">{{ course }}</li>
+  </ul>
+</div>
+<ng-template #noCourses> No courses yet </ng-template>
+
 <button
   class="btn btn-primary"
   [class.active]="isActive"
@@ -10,3 +22,6 @@
 >
   Save
 </button>
+<input type="text" (keyup.enter)="onKeyUp()" [(ngModel)]="email" /> <br />
+<br />
+<br />

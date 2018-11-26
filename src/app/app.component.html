@@ -1,2 +1,20 @@
 <h1>Angular</h1>
-<course></course>
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
+<bootstrap-panel>
+  <div class="heading">Heading</div>
+  <div class="body">
+    <h2>body</h2>
+    <p>some content here...</p>
+  </div>
+  <div class="abody">
+    <h2>body</h2>
+    <p>some content here...</p>
+  </div>
+</bootstrap-panel>
+
+<app-favorite
+  [is-Favorite]="post.isFavorite"
+  (change)="onFavoriteChange($event)"
+></app-favorite>
+<br />
+<course></course> <br />

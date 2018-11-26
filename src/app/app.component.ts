@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'courses-app';
+  post = {
+    title: 'Title',
+    isFavorite: true
+  };
+  tweet = {
+    body: '...',
+    likesCount: 10,
+    isLiked: true
+  };
+
+  onFavoriteChange(isFavorite) {
+    console.log('Favorite Changed:', isFavorite);
+  }
 }
