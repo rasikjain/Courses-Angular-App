@@ -5,15 +5,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { CourseService } from './course/course.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
+import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, SummaryPipe, FavoriteComponent, PanelComponent, LikeComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  // tslint:disable-next-line:max-line-length
+  declarations: [
+    AppComponent,
+    CourseComponent,
+    SummaryPipe,
+    FavoriteComponent,
+    PanelComponent,
+    LikeComponent,
+    ZippyComponent,
+    ContactFormComponent,
+    SignupFormComponent,
+    ChangePasswordComponent
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [CourseService],
   bootstrap: [AppComponent]
 })

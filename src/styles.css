@@ -4,3 +4,7 @@ body {
   padding: 20px;
   font-size: 150%;
 }
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
