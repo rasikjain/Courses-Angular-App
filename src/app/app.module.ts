@@ -1,3 +1,4 @@
+import { PostService } from './posts/services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,8 +15,9 @@ import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './posts/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
@@ -37,9 +39,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [CourseService],
+  providers: [CourseService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
