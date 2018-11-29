@@ -1,6 +1,6 @@
 import { PostService } from './posts/services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { PostsComponent } from './posts/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
@@ -32,7 +36,10 @@ import { HttpModule } from '@angular/http';
     ContactFormComponent,
     SignupFormComponent,
     ChangePasswordComponent,
-    PostsComponent
+    PostsComponent,
+    HomeComponent,
+    NotFoundComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,21 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'archive/:year/:month',
+        component: ArchiveComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [CourseService, PostService],
   bootstrap: [AppComponent]
